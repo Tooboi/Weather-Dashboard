@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;@500&family=Montserrat&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Montserrat:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link
@@ -37,17 +37,20 @@
         >
       </div>
     </nav>
+
     <main class="row p-5">
-      <aside class="-col-12 col-md-4 ">
-        <form class="custom-bg-surface p-3 rounded-2">
+      <aside class="-col-12 col-md-4">
+
+        <form class="custom-bg-surface p-3 rounded-2" id="formSubmit" method="POST">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Philadelphia" />
+            <input type="text" class="form-control" id="floatingInput" />
             <label for="floatingInput">City Name</label>
           </div>
           <div class="col-auto d-grid">
-            <button type="submit" class="btn custom-btn btn-sm">Search</button>
+            <button type="submit" class="btn custom-btn btn-sm" id="searchBtn">Search</button>
           </div>
         </form>
+        
         <section class="custom-bg-surface px-3 my-4 rounded-2">
           <!-- TODO: add buttons here for previous searches -->
           <div class="col-auto py-3 d-grid">
@@ -67,48 +70,69 @@
           </section>
         </figure>
 
-        <section class="custom-bg-surface p-4 my-4 rounded-2 ">
+        <section class="custom-bg-surface p-4 my-4 rounded-2">
           <!-- 5 day forecast will go here -->
+          <h3 class="custom-font3">5 Day Forecast</h3>
           <div class="col my-3 custom-card text-bg-primary">
-            <div class="custom-card-header"><h5 class="p-2">Tomorrow</h5></div>
+            <div class="custom-card-header">
+              <h5 class="p-2">
+                Tomorrow
+                <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
+              </h5>
+            </div>
             <div class="card-body">
-              <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
               <h6 class="card-text">Temp</h6>
               <h6 class="card-text">Wind</h6>
               <h6 class="card-text">Humidity</h6>
             </div>
           </div>
           <div class="col my-3 custom-card text-bg-primary">
-            <div class="custom-card-header"><h5 class="p-2">Next Day</h5></div>
+            <div class="custom-card-header">
+              <h5 class="p-2">
+                Next Day
+                <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
+              </h5>
+            </div>
             <div class="card-body">
-              <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
               <h6 class="card-text">Temp</h6>
               <h6 class="card-text">Wind</h6>
               <h6 class="card-text">Humidity</h6>
             </div>
           </div>
           <div class="col my-3 custom-card text-bg-primary">
-            <div class="custom-card-header"><h5 class="p-2">Next Day</h5></div>
+            <div class="custom-card-header">
+              <h5 class="p-2">
+                Next Day
+                <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
+              </h5>
+            </div>
             <div class="card-body">
-              <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
               <h6 class="card-text">Temp</h6>
               <h6 class="card-text">Wind</h6>
               <h6 class="card-text">Humidity</h6>
             </div>
           </div>
           <div class="col my-3 custom-card text-bg-primary">
-            <div class="custom-card-header"><h5 class="p-2">Next Day</h5></div>
+            <div class="custom-card-header">
+              <h5 class="p-2">
+                Next Day
+                <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
+              </h5>
+            </div>
             <div class="card-body">
-              <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
               <h6 class="card-text">Temp</h6>
               <h6 class="card-text">Wind</h6>
               <h6 class="card-text">Humidity</h6>
             </div>
           </div>
           <div class="col my-3 custom-card text-bg-primary">
-            <div class="custom-card-header"><h5 class="p-2">Next Day</h5></div>
+            <div class="custom-card-header">
+              <h5 class="p-2">
+                Next Day
+                <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
+              </h5>
+            </div>
             <div class="card-body">
-              <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
               <h6 class="card-text">Temp</h6>
               <h6 class="card-text">Wind</h6>
               <h6 class="card-text">Humidity</h6>
@@ -117,7 +141,11 @@
         </section>
       </section>
     </main>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://code.jquery.com/jquery-3.6.1.min.js"
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="

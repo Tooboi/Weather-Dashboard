@@ -26,6 +26,7 @@
 body {
     background-color: var(--col-bg);
     font-family: var(--ff2);
+    transition: all ease-out 300ms;
 }
 .custom-dark {
     background-color: var(--col-s-500);
