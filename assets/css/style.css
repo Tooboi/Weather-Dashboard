@@ -29,7 +29,7 @@ body {
     transition: all ease-out 300ms;
 }
 .custom-dark {
-    background-color: var(--col-s-500);
+    background-color: var(--col-p-500);
     color: var(--col-on-primary);
 }
 .custom-font1 {
@@ -66,8 +66,8 @@ body {
     word-wrap: break-word;
     background-color: var(--col-p-500);
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: 0.25rem;
+    border: 3px solid var(--col-p-900);
+    border-radius: 0.5rem;
     box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.185);
 }
 .custom-ff1 {
@@ -77,9 +77,12 @@ body {
     font-family: var(--ff2);
 }
 .custom-card-header {
-    padding: 0;
-    margin-bottom: 0;
-    background-color: rgba(0,0,0,.03);
-    border-bottom: 1px solid rgba(0,0,0,.125);
-    min-width: 16ch;
+    padding: 1rem 0;
+    margin: 0;
+    background-color: var(--col-p-700);
+    width: 16ch;
+    text-align: center;
+    border-radius: 0.5rem;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
 }

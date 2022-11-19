@@ -14,19 +14,16 @@
 
 var today = dayjs().format("MMMM D, YYYY h:mm A");
 console.log(today);
-var repoList = document.querySelector("ul");
+var body = document.querySelector("body");
 var searchButton = document.getElementById("searchBtn");
-var lat = 44;
-var long = 50;
-
+var city = "Philadelphia"
 
 function getApi(event) {
-  event.preventDefault();
-  var city = document.getElementById("floatingInput").value;
+   event.preventDefault();
+   var city = document.getElementById("floatingInput").value;
   window.localStorage.setItem("city", JSON.stringify(city));
   document.getElementById("floatingInput").value = "";
-  
-//   var currentCity = window.localStorage.getItem(city)
+    //   var currentCity = window.localStorage.getItem(city)
   console.log(city);
 
   var requestUrl ="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=bc8b625028ac837ee20e61a315479c7e&units=imperial";
@@ -36,7 +33,6 @@ function getApi(event) {
       return response.json();
     })
     .then(function (data) {
-
         for (let i = 0; i < 5; i++) {
             document.getElementById('day' + (i+1) +"humid").innerHTML = 'Humidity: ' + Number(data.list[i * 8].main.humidity) + " %";
             document.getElementById('day' + (i+1) +"temp").innerHTML = 'Temperature: ' + Number(data.list[i * 8].main.temp).toFixed(0) + "°F";
@@ -53,17 +49,14 @@ function getApi(event) {
             var mainIcon = data.list[0].weather[0].icon;
             document.getElementById('day0icon').src = "http://openweathermap.org/img/wn/" + mainIcon + "@2x.png";
             var currentCity = window.localStorage.getItem('city')
-            document.getElementById('mainCity').innerHTML = JSON.parse(currentCity);
+            document.getElementById('mainCity').innerHTML = (data.city.name)+ ', ' +(data.city.country);
         }
         console.log(data);
         
-      
-        
     });
     }
-//   console.log(requestCityUrl);
-//   console.log(requestUrl);
-searchButton.addEventListener("click", getApi);
 
 
-// 
+    
+        // window.onload = getApi()
+        searchButton.addEventListener("click", getApi);
