@@ -20,11 +20,13 @@ var city = "Philadelphia"
 
 function getApi(event) {
    event.preventDefault();
-   var city = document.getElementById("floatingInput").value;
-  window.localStorage.setItem("city", JSON.stringify(city));
+  var city = document.getElementById("floatingInput").value;
+  // window.localStorage.setItem("city", JSON.stringify(city));
   document.getElementById("floatingInput").value = "";
     //   var currentCity = window.localStorage.getItem(city)
   console.log(city);
+  var previous = [];
+
 
   var requestUrl ="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=bc8b625028ac837ee20e61a315479c7e&units=imperial";
 
@@ -33,6 +35,9 @@ function getApi(event) {
       return response.json();
     })
     .then(function (data) {
+          // var properCity = data.city.name
+          // previous.push(JSON.parse(local))
+
         for (let i = 0; i < 5; i++) {
             document.getElementById('day' + (i+1) +"humid").innerHTML = 'Humidity: ' + Number(data.list[i * 8].main.humidity) + " %";
             document.getElementById('day' + (i+1) +"temp").innerHTML = 'Temperature: ' + Number(data.list[i * 8].main.temp).toFixed(0) + "°F";
@@ -48,8 +53,8 @@ function getApi(event) {
             document.getElementById('day0day').innerHTML = mainDay;
             var mainIcon = data.list[0].weather[0].icon;
             document.getElementById('day0icon').src = "http://openweathermap.org/img/wn/" + mainIcon + "@2x.png";
-            var currentCity = window.localStorage.getItem('city')
             document.getElementById('mainCity').innerHTML = (data.city.name)+ ', ' +(data.city.country);
+            
         }
         console.log(data);
         
