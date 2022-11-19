@@ -1,0 +1,84 @@
+:root {
+    --ff1: 'Barlow Condensed', sans-serif;
+    --ff2: 'Montserrat', sans-serif;
+	/* page bg */
+	--col-bg: #1f1f1f;
+	/* element bg */
+	--col-surface: hsl(0, 0%, 24%);
+	/* one level up */
+	--col-surface2: hsl(0, 0%, 32%);
+	/* primary colors */
+	--col-s-200: #FFF7BB;
+	--col-s-500: hsl(40, 100%, 75%);
+	--col-s-700: #FFC34A;
+	/* secondary colors */
+	--col-p-200: #7EB0F2;
+	--col-p-500: #5096F2;
+	--col-p-700: #3084F2;
+    --col-p-900: #0455BF;
+	/* text colors */
+	--col-on-bg: #F2F2F2;
+	--col-on-surface: #F2F2F2;
+	--col-on-primary: #1f1f1f;
+	--col-on-secondary: #1f1f1f;
+    scrollbar-width: 0px;
+}
+body {
+    background-color: var(--col-bg);
+    font-family: var(--ff2);
+}
+.custom-dark {
+    background-color: var(--col-s-500);
+    color: var(--col-on-primary);
+}
+.custom-font1 {
+    font-family: var(--ff1);
+    font-size: 2rem;
+    font-weight: 500;
+    user-select: none;
+}
+.custom-font2 {
+    font-family: var(--ff2);
+    color: var(--col-p-500);
+}
+.custom-font3 {
+    color: var(--col-on-surface);
+}
+.custom-bg-surface {
+    background-color: var(--col-surface);
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.185);
+}
+.custom-btn {
+    color: var(--col-on-secondary);
+    background-color: var(--col-s-700);
+    border-color: var(--col-s-700);
+    font-family: var(--ff2);
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.185);
+}
+.custom-card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: var(--col-p-500);
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.185);
+}
+.custom-ff1 {
+    font-family: var(--ff1);
+}
+.custom-ff2 {
+    font-family: var(--ff2);
+}
+.custom-card-header {
+    padding: 0;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    min-width: 16ch;
+}
