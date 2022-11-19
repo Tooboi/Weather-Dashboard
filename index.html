@@ -40,7 +40,6 @@
 
     <main class="row p-5">
       <aside class="-col-12 col-md-4">
-
         <form class="custom-bg-surface p-3 rounded-2" id="formSubmit" method="POST">
           <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingInput" />
@@ -50,7 +49,7 @@
             <button type="submit" class="btn custom-btn btn-sm" id="searchBtn">Search</button>
           </div>
         </form>
-        
+
         <section class="custom-bg-surface px-3 my-4 rounded-2">
           <!-- TODO: add buttons here for previous searches -->
           <div class="col-auto py-3 d-grid">
@@ -60,82 +59,69 @@
       </aside>
 
       <section class="col-12 col-md-8">
-        <figure>
           <section class="custom-bg-surface p-3 rounded-2">
-            <!-- main weather right now -->
-            <h1 id="mainCity" class="custom-font3">#mainCity</h1>
-            <h3 id="mainTemp" class="custom-font3">#mainTemp</h3>
-            <h3 id="mainWind" class="custom-font3">#mainWind</h3>
-            <h3 id="mainHumid" class="custom-font3">#mainHumid</h3>
+            <h1 id="day0day" class="custom-font3"></h1>
+            <img id="day0icon" src="" alt="icon" />
+            <h1 id="mainCity" class="custom-font3">...</h1>
+            <h3 id="day0temp" class="custom-font3">...</h3>
+            <h3 id="day0wind" class="custom-font3">...</h3>
+            <h3 id="day0humid" class="custom-font3">...</h3>
           </section>
-        </figure>
-
         <section class="custom-bg-surface p-4 my-4 rounded-2">
-          <!-- 5 day forecast will go here -->
           <h3 class="custom-font3">5 Day Forecast</h3>
           <div class="col my-3 custom-card text-bg-primary">
             <div class="custom-card-header">
-              <h5 class="p-2">
-                Tomorrow
-                <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
-              </h5>
+              <h5 class="p-2" id="day1day">...</h5>
             </div>
             <div class="card-body">
-              <h6 class="card-text">Temp</h6>
-              <h6 class="card-text">Wind</h6>
-              <h6 class="card-text">Humidity</h6>
+              <img id="day1icon" src="" alt="icon" width="36px" />
+              <h6 class="card-text" id="day1temp">...</h6>
+              <h6 class="card-text" id="day1wind">...</h6>
+              <h6 class="card-text" id="day1humid">...</h6>
             </div>
           </div>
           <div class="col my-3 custom-card text-bg-primary">
             <div class="custom-card-header">
-              <h5 class="p-2">
-                Next Day
-                <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
-              </h5>
+              <h5 class="p-2" id="day2day">...</h5>
             </div>
             <div class="card-body">
-              <h6 class="card-text">Temp</h6>
-              <h6 class="card-text">Wind</h6>
-              <h6 class="card-text">Humidity</h6>
+              <img id="day2icon" src="" alt="icon" width="36px" />
+              <h6 class="card-text" id="day2temp">...</h6>
+              <h6 class="card-text" id="day2wind">...</h6>
+              <h6 class="card-text" id="day2humid">...</h6>
             </div>
           </div>
           <div class="col my-3 custom-card text-bg-primary">
             <div class="custom-card-header">
-              <h5 class="p-2">
-                Next Day
-                <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
-              </h5>
+              <h5 class="p-2" id="day3day">...</h5>
             </div>
             <div class="card-body">
-              <h6 class="card-text">Temp</h6>
-              <h6 class="card-text">Wind</h6>
-              <h6 class="card-text">Humidity</h6>
+              <img id="day3icon" src="" alt="icon" width="36px" />
+              <h6 class="card-text" id="day3temp">...</h6>
+              <h6 class="card-text" id="day3wind">...</h6>
+              <h6 class="card-text" id="day3humid">...</h6>
             </div>
           </div>
           <div class="col my-3 custom-card text-bg-primary">
             <div class="custom-card-header">
-              <h5 class="p-2">
-                Next Day
-                <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
-              </h5>
+              <h5 class="p-2" id="day4day">...</h5>
             </div>
             <div class="card-body">
-              <h6 class="card-text">Temp</h6>
-              <h6 class="card-text">Wind</h6>
-              <h6 class="card-text">Humidity</h6>
+              <img id="day4icon" src="" alt="icon" width="36px" />
+              <h6 class="card-text" id="day4temp">...</h6>
+              <h6 class="card-text" id="day4wind">...</h6>
+              <h6 class="card-text" id="day4humid">...</h6>
             </div>
           </div>
           <div class="col my-3 custom-card text-bg-primary">
             <div class="custom-card-header">
-              <h5 class="p-2">
-                Next Day
-                <i class="bi bi-brightness-high-fill" alt="Logo" width="30" height="24"></i>
-              </h5>
+              <h5 class="p-2" id="day5day">...</h5>
             </div>
             <div class="card-body">
-              <h6 class="card-text">Temp</h6>
-              <h6 class="card-text">Wind</h6>
-              <h6 class="card-text">Humidity</h6>
+              <img id="day5icon" src="" alt="icon" width="36px" />
+              <h6 class="card-text" id="day5temp">...</h6>
+              <h6 class="card-text" id="day5wind">...</h6>
+              <h6 class="card-text" id="day5humid">...</h6>
             </div>
           </div>
         </section>

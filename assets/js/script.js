@@ -23,27 +23,47 @@ var long = 50;
 function getApi(event) {
   event.preventDefault();
   var city = document.getElementById("floatingInput").value;
-  document.getElementById("floatingInput").value = "";
   window.localStorage.setItem("city", JSON.stringify(city));
+  document.getElementById("floatingInput").value = "";
+  
+//   var currentCity = window.localStorage.getItem(city)
   console.log(city);
-//   var requestCityUrl =
-//     "api.openweathermap.org/geo/1.0/direct?q=" +
-//     city +
-//     "&limit=1&appid=bc8b625028ac837ee20e61a315479c7e";
-  var requestUrl ="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=bc8b625028ac837ee20e61a315479c7e";
+
+  var requestUrl ="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=bc8b625028ac837ee20e61a315479c7e&units=imperial";
 
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-    //   for (let i = 0; i < 5.length; i++) {
-    //     const element = 5[i];
-        
-    //   }
+
+        for (let i = 0; i < 5; i++) {
+            document.getElementById('day' + (i+1) +"humid").innerHTML = 'Humidity: ' + Number(data.list[i * 8].main.humidity) + " %";
+            document.getElementById('day' + (i+1) +"temp").innerHTML = 'Temperature: ' + Number(data.list[i * 8].main.temp).toFixed(0) + "°F";
+            document.getElementById('day' + (i+1) +"wind").innerHTML = 'Wind: ' + Number(data.list[i * 8].wind.speed).toFixed(0) + " mph";
+            var day = dayjs((Number(data.list[i * 8].dt)) * 1000).format("ddd, MMM D");
+            document.getElementById('day' + (i+1) +"day").innerHTML = day;
+            var icon = data.list[i * 8].weather[0].icon;
+            document.getElementById('day' + (i+1) +"icon").src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+            document.getElementById('day0humid').innerHTML = 'Humidity: ' + Number(data.list[0].main.humidity) + " %";
+            document.getElementById('day0temp').innerHTML = 'Temperature: ' + Number(data.list[0].main.temp).toFixed(0) + "°F";
+            document.getElementById('day0wind').innerHTML = 'Wind: ' + Number(data.list[0].wind.speed).toFixed(0) + " mph";
+            var mainDay = dayjs((Number(data.list[0].dt)) * 1000).format("MMMM D, YYYY h:mm A") 
+            document.getElementById('day0day').innerHTML = mainDay;
+            var mainIcon = data.list[0].weather[0].icon;
+            document.getElementById('day0icon').src = "http://openweathermap.org/img/wn/" + mainIcon + "@2x.png";
+            var currentCity = window.localStorage.getItem('city')
+            document.getElementById('mainCity').innerHTML = JSON.parse(currentCity);
+        }
         console.log(data);
+        
+      
+        
     });
     }
 //   console.log(requestCityUrl);
 //   console.log(requestUrl);
 searchButton.addEventListener("click", getApi);
+
+
+// 
