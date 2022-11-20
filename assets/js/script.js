@@ -25,7 +25,7 @@ function getApi(event) {
   document.getElementById("floatingInput").value = "";
     //   var currentCity = window.localStorage.getItem(city)
   console.log(city);
-  var previous = [];
+  
 
 
   var requestUrl ="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=bc8b625028ac837ee20e61a315479c7e&units=imperial";
@@ -35,10 +35,9 @@ function getApi(event) {
       return response.json();
     })
     .then(function (data) {
-          // var properCity = data.city.name
-          // previous.push(JSON.parse(local))
 
         for (let i = 0; i < 5; i++) {
+            var previous = [];
             document.getElementById('day' + (i+1) +"humid").innerHTML = 'Humidity: ' + Number(data.list[i * 8].main.humidity) + " %";
             document.getElementById('day' + (i+1) +"temp").innerHTML = 'Temperature: ' + Number(data.list[i * 8].main.temp).toFixed(0) + "°F";
             document.getElementById('day' + (i+1) +"wind").innerHTML = 'Wind: ' + Number(data.list[i * 8].wind.speed).toFixed(0) + " mph";
@@ -49,12 +48,14 @@ function getApi(event) {
             document.getElementById('day0humid').innerHTML = 'Humidity: ' + Number(data.list[0].main.humidity) + " %";
             document.getElementById('day0temp').innerHTML = 'Temperature: ' + Number(data.list[0].main.temp).toFixed(0) + "°F";
             document.getElementById('day0wind').innerHTML = 'Wind: ' + Number(data.list[0].wind.speed).toFixed(0) + " mph";
-            var mainDay = dayjs((Number(data.list[0].dt)) * 1000).format("MMMM D, YYYY h:mm A") 
+            var mainDay = dayjs((Number(data.list[0].dt)) * 1000).format("MMM D, YYYY h:mm A") 
             document.getElementById('day0day').innerHTML = mainDay;
             var mainIcon = data.list[0].weather[0].icon;
             document.getElementById('day0icon').src = "http://openweathermap.org/img/wn/" + mainIcon + "@2x.png";
             document.getElementById('mainCity').innerHTML = (data.city.name)+ ', ' +(data.city.country);
-            
+            var properName = data.city.name
+            previous[0] = properName
+            window.localStorage.setItem('city', JSON.stringify(previous))
         }
         console.log(data);
         

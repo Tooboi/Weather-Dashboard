@@ -4,7 +4,7 @@
 	/* page bg */
 	--col-bg: #1f1f1f;
 	/* element bg */
-	--col-surface: hsl(0, 0%, 24%);
+	--col-surface: hsl(0, 0%, 20%);
 	/* one level up */
 	--col-surface2: hsl(0, 0%, 32%);
 	/* primary colors */
@@ -85,4 +85,7 @@ body {
     border-radius: 0.5rem;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+}
+.custom-bg {
+background-color: var(--col-on-surface);
 }
