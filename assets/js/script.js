@@ -16,16 +16,28 @@ var today = dayjs().format("MMMM D, YYYY h:mm A");
 console.log(today);
 var body = document.querySelector("body");
 var searchButton = document.getElementById("searchBtn");
-var city = "Philadelphia"
+if (localStorage.getItem('city') == null) {
+  localStorage.setItem('city', '[]');
+};
 
 function getApi(event) {
-   event.preventDefault();
-  var city = document.getElementById("floatingInput").value;
-  // window.localStorage.setItem("city", JSON.stringify(city));
+  event.preventDefault();
+
+
+//get city name
+var city = document.getElementById("floatingInput").value;
+//get old info and add new
+var oldCities = JSON.parse(localStorage.getItem('city'));
+oldCities.push(city);
+//save old and new together
+localStorage.setItem('city', JSON.stringify(oldCities));
+
+
+
+
   document.getElementById("floatingInput").value = "";
-    //   var currentCity = window.localStorage.getItem(city)
   console.log(city);
-  
+
 
 
   var requestUrl ="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=bc8b625028ac837ee20e61a315479c7e&units=imperial";
@@ -37,7 +49,6 @@ function getApi(event) {
     .then(function (data) {
 
         for (let i = 0; i < 5; i++) {
-            var previous = [];
             document.getElementById('day' + (i+1) +"humid").innerHTML = 'Humidity: ' + Number(data.list[i * 8].main.humidity) + " %";
             document.getElementById('day' + (i+1) +"temp").innerHTML = 'Temperature: ' + Number(data.list[i * 8].main.temp).toFixed(0) + "°F";
             document.getElementById('day' + (i+1) +"wind").innerHTML = 'Wind: ' + Number(data.list[i * 8].wind.speed).toFixed(0) + " mph";
@@ -53,12 +64,8 @@ function getApi(event) {
             var mainIcon = data.list[0].weather[0].icon;
             document.getElementById('day0icon').src = "http://openweathermap.org/img/wn/" + mainIcon + "@2x.png";
             document.getElementById('mainCity').innerHTML = (data.city.name)+ ', ' +(data.city.country);
-            var properName = data.city.name
-            previous[0] = properName
-            window.localStorage.setItem('city', JSON.stringify(previous))
         }
         console.log(data);
-        
     });
     }
 
