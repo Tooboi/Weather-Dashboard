@@ -32,6 +32,7 @@ oldCities.unshift(city);
 //save old and new together
 localStorage.setItem('city', JSON.stringify(oldCities));
 console.log("oldCities ", oldCities);
+document.getElementById('searchHistory').textContent = ""
 //make buttons
 for (let i = 0; i < oldCities.length; i++) {
   //if not included in array add button
