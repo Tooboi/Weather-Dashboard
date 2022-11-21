@@ -14,6 +14,7 @@
 
 var today = dayjs().format("MMMM D, YYYY h:mm A");
 console.log(today);
+var historyEl = document.getElementById('searchHistory');
 var body = document.querySelector("body");
 var searchButton = document.getElementById("searchBtn");
 if (localStorage.getItem('city') == null) {
@@ -23,22 +24,28 @@ if (localStorage.getItem('city') == null) {
 function getApi(event) {
   event.preventDefault();
 
-
 //get city name
 var city = document.getElementById("floatingInput").value;
 //get old info and add new
 var oldCities = JSON.parse(localStorage.getItem('city'));
-oldCities.push(city);
+oldCities.unshift(city);
 //save old and new together
 localStorage.setItem('city', JSON.stringify(oldCities));
-
-
-
-
-  document.getElementById("floatingInput").value = "";
-  console.log(city);
-
-
+console.log("oldCities ", oldCities);
+//make buttons
+for (let i = 0; i < oldCities.length; i++) {
+  //if not included in array add button
+  if (!oldCities.includes(JSON.stringify(oldCities[i]))) {
+    var btn = document.createElement('button');
+    var previous = document.createTextNode(oldCities[i]);
+    btn.classList.add('btn', 'custom-btn', 'btn-sm', 'my-2');
+    btn.appendChild(previous);
+    historyEl.appendChild(btn)
+  }
+}
+//clear text field
+document.getElementById("floatingInput").value = "";
+console.log(city);
 
   var requestUrl ="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=bc8b625028ac837ee20e61a315479c7e&units=imperial";
 
@@ -69,7 +76,4 @@ localStorage.setItem('city', JSON.stringify(oldCities));
     });
     }
 
-
-    
-        // window.onload = getApi()
-        searchButton.addEventListener("click", getApi);
+searchButton.addEventListener("click", getApi);
