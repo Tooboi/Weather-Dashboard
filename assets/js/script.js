@@ -1,5 +1,4 @@
 var today = dayjs().format("MMMM D, YYYY h:mm A");
-console.log(today);
 var historyEl = document.getElementById('searchHistory');
 var body = document.querySelector("body");
 var searchButton = document.getElementById("searchBtn");
@@ -22,7 +21,6 @@ oldCities.unshift(city);
 oldCities.length = 5;
 //save old and new together
 localStorage.setItem('city', JSON.stringify(oldCities));
-console.log("oldCities ", oldCities);
 document.getElementById('searchHistory').textContent = ""
 //make buttons
 for (let i = 0; i < oldCities.length; i++) {
@@ -39,7 +37,6 @@ for (let i = 0; i < oldCities.length; i++) {
 }
 //clear text field
 document.getElementById("floatingInput").value = "";
-console.log(city);
   var requestUrl ="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=bc8b625028ac837ee20e61a315479c7e&units=imperial";
   fetch(requestUrl)
     .then(function (response) {
@@ -63,7 +60,6 @@ console.log(city);
             document.getElementById('day0icon').src = "http://openweathermap.org/img/wn/" + mainIcon + "@2x.png";
             document.getElementById('mainCity').innerHTML = (data.city.name)+ ', ' +(data.city.country);
         }
-        console.log(data);
     });
     }
 searchButton.addEventListener("click", getCity);
