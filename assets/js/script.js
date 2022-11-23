@@ -50,14 +50,14 @@ document.getElementById("floatingInput").value = "";
             var day = dayjs((Number(data.list[i * 8].dt)) * 1000).format("ddd, MMM D");
             document.getElementById('day' + (i+1) +"day").innerHTML = day;
             var icon = data.list[i * 8].weather[0].icon;
-            document.getElementById('day' + (i+1) +"icon").src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+            document.getElementById('day' + (i+1) +"icon").src = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
             document.getElementById('day0humid').innerHTML = 'Humidity: ' + Number(data.list[0].main.humidity) + " %";
             document.getElementById('day0temp').innerHTML = 'Temperature: ' + Number(data.list[0].main.temp).toFixed(0) + "°F";
             document.getElementById('day0wind').innerHTML = 'Wind: ' + Number(data.list[0].wind.speed).toFixed(0) + " mph";
             var mainDay = dayjs((Number(data.list[0].dt)) * 1000).format("MMM D, YYYY h:mm A") 
             document.getElementById('day0day').innerHTML = mainDay;
             var mainIcon = data.list[0].weather[0].icon;
-            document.getElementById('day0icon').src = "http://openweathermap.org/img/wn/" + mainIcon + "@2x.png";
+            document.getElementById('day0icon').src = "https://openweathermap.org/img/wn/" + mainIcon + "@2x.png";
             document.getElementById('mainCity').innerHTML = (data.city.name)+ ', ' +(data.city.country);
         }
     });
